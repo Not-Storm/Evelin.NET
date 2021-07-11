@@ -1,26 +1,26 @@
-﻿namespace Evelin
+﻿ namespace Evelin
 {
+    using System.IO;
+    using System.Threading.Tasks;
+    using Discord;
     using Discord.Addons.Hosting;
     using Discord.Commands;
     using Discord.WebSocket;
-    using Discord;
+    using Evelin.Services;
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.DependencyInjection;
-    using System.IO;
-    using System.Threading.Tasks;
-    using Evelin.services;
 
     /// <summary>
-    /// Entry point of the program
+    /// Entry point of the program.
     /// </summary>
     internal class Program
     {
         /// <summary>
-        /// The main function
+        /// The main function.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         private static async Task Main()
         {
             var builder = new HostBuilder()
@@ -44,7 +44,7 @@
                     {
                         LogLevel = LogSeverity.Debug,
                         AlwaysDownloadUsers = false,
-                        MessageCacheSize = 200
+                        MessageCacheSize = 200,
                     };
 
                     config.Token = context.Configuration["token"];
@@ -67,6 +67,6 @@
             {
                 await host.RunAsync();
             }
-        }     
+        }
     }
 }

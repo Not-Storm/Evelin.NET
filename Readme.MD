@@ -1,6 +1,8 @@
 # Readme
 
-Discord bot in C# made using Discord.NET api wrapper
+Discord bot in C# made using [Discord.NET](https://github.com/discord-net/Discord.Net) discord api wrapper writen in C#  
+
+P.S. Its a humble request from me to anyone working with this project to follow coding [conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions) for the sake of other fellow programmers. I will recommend [Stylecop.Alanyzer](https://www.nuget.org/packages/StyleCop.Analyzers/1.2.0-beta.354)and [Discord.NET analyzer](https://nuget.org/packages/Discord.Net.Analyzer/2.4.0?_src=template) as the analyzer for this project
 
 
 How to use
@@ -17,7 +19,7 @@ give 2 values in this format
 }
 ```
 Save it in the base directory (\Evelin) itself
-then run `main.cs` and it should run properly until there are some unsolved mistakes in the code itself  
+then run `Program.cs` and it should run properly until there are errors in code  
 
 
 Dependencies
@@ -51,5 +53,5 @@ Links
 
 reference links:
 
-[token](https://discord.com/developers)  
+[token](https://www.writebots.com/discord-bot-token/#:~:text=Generating%20Your%20Token%20Step-by-Step%201%20Go%20to%20the,Add%20Your%20Bot%20to%20a%20Discord%20Server.%20)  
 [dependencies](https://nuget.org) or you can very well use inbuilt package manager in Visual Studio

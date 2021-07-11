@@ -1,13 +1,11 @@
-﻿namespace Evelin.modules
+﻿namespace Evelin.Modules
 {
-    using Discord;
-    using Discord.Commands;
-    using Discord.WebSocket;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Net.Http;
+    using System.Text.Json;
     using System.Threading.Tasks;
+    using Discord.Commands;
+    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// General module containing basic commands.
@@ -17,22 +15,32 @@
         /// <summary>
         /// A basic command which replies with "Pong!" upon use.
         /// </summary>
-        /// <returns>A <see cref="Task"/> representing the result of Asynchronous Task</returns>
+        /// <returns>A <see cref="Task"/> representing the result of Asynchronous Task.</returns>
         [Command("ping")]
-        [Alias("latency" , "test")]
+        [Alias("latency", "test")]
         public async Task PingAsync()
         {
             await this.Context.Channel.TriggerTypingAsync();
             await this.Context.Channel.SendMessageAsync("Pong!");
+        }
 
-           // enable discord presence intents
-           //  enable server intent too sire
-           //  and read description of s2 ep 3 for presence intent ig
+        /// <summary>
+        /// A command to get a random quote from zenquote api.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
+        [Command("quote")]
+        [Alias("inspire")]
+        public async Task QuoteAsync()
+        {
+            await this.Context.Channel.TriggerTypingAsync();
+            var client = new HttpClient();
+            var result = await client.GetStringAsync("https://zenquotes.io/api/random");
+            JArray qarray = JArray.Parse(result);
+            string quote = qarray[0]["q"].ToString();
+            string author = qarray[0]["a"].ToString();
+            await this.ReplyAsync($"{quote} - {author}");
 
-           // Install Stylecop.Analyzer uwu~ for conventions
-           // also push the changes lmao the currect repo shouldnt work if i am correct
-           // Check out Discord.NET analyzer uwu~
-           // also good night to anyone reading this uwu~
+            // put embed
         }
     }
 }

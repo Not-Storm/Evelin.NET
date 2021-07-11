@@ -53,6 +53,16 @@
             "Discord.Net": {
               "target": "Package",
               "version": "[2.4.0, )"
+            },
+            "Discord.Net.Analyzers": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.1.118, )"
             }
           },
           "imports": [

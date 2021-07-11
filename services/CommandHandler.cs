@@ -1,48 +1,47 @@
-﻿namespace Evelin.services
+﻿namespace Evelin.Services
 {
+    using System;
+    using System.Reflection;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Discord;
     using Discord.Addons.Hosting;
     using Discord.Commands;
     using Discord.WebSocket;
-    using Discord;
     using Microsoft.Extensions.Configuration;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Reflection;
     using Microsoft.Extensions.Logging;
 
     /// <summary>
-    /// Class responsible for handling commands and events
+    /// Class responsible for handling commands and events.
     /// </summary>
     public class CommandHandler : DiscordClientService
     {
-        private readonly IServiceProvider _provider;
-        private readonly CommandService _commandService;
-        private readonly IConfiguration _config;
+        private readonly IServiceProvider provider;
+        private readonly CommandService commandService;
+        private readonly IConfiguration config;
 
         /// <summary>
-        /// Initilize a new instance of <see cref="CommandHandler"/> class
+        /// Initializes a new instance of the <see cref="CommandHandler"/> class.
         /// </summary>
-        /// <param name="client">For injecting <see cref="DiscordSocketClient"/></param>
-        /// <param name="logger">For injecting <see cref="ILogger"/></param>
-        /// <param name="provider">For injecting <see cref="IServiceProvider"/></param>
-        /// <param name="commandService">For injecting <see cref="CommandService"/></param>
-        /// <param name="config">For injecting <see cref="IConfiguration"/></param>
-        public CommandHandler(DiscordSocketClient client, ILogger<CommandHandler> logger, IServiceProvider provider, CommandService commandService, IConfiguration config) : base(client, logger)
+        /// <param name="client">For injecting <see cref="DiscordSocketClient"/>.</param>
+        /// <param name="logger">For injecting <see cref="ILogger"/>.</param>
+        /// <param name="provider">For injecting <see cref="IServiceProvider"/>.</param>
+        /// <param name="commandService">For injecting <see cref="CommandService"/>.</param>
+        /// <param name="config">For injecting <see cref="IConfiguration"/>.</param>
+        public CommandHandler(DiscordSocketClient client, ILogger<CommandHandler> logger, IServiceProvider provider, CommandService commandService, IConfiguration config)
+            : base(client, logger)
         {
-            _provider = provider;
-            _commandService = commandService;
-            _config = config;
+            this.provider = provider;
+            this.commandService = commandService;
+            this.config = config;
         }
 
         /// <inheritdoc/>
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            Client.MessageReceived += this.OnMessageReceived;
-            _commandService.CommandExecuted += this.OnCommandExecuted;
-            await _commandService.AddModulesAsync(Assembly.GetEntryAssembly(), _provider);
+            this.Client.MessageReceived += this.OnMessageReceived;
+            this.commandService.CommandExecuted += this.OnCommandExecuted;
+            await this.commandService.AddModulesAsync(Assembly.GetEntryAssembly(), this.provider);
         }
 
         private async Task OnCommandExecuted(Optional<CommandInfo> commandInfo, ICommandContext commandContext, IResult result)
@@ -52,7 +51,16 @@
                 return;
             }
 
-            await commandContext.Channel.SendMessageAsync(result.ErrorReason);
+            var errorembed = new EmbedBuilder()
+                .WithTitle("Error")
+                .WithDescription(result.ErrorReason)
+                .WithColor(new Color(238, 62, 75))
+                .Build();
+
+            if (result.ErrorReason != "Unknown command.")
+            {
+                await commandContext.Channel.SendMessageAsync(embed: errorembed);
+            }
         }
 
         private async Task OnMessageReceived(SocketMessage socketMessage)
@@ -61,19 +69,20 @@
             {
                 return;
             }
+
             if (message.Source != MessageSource.User)
             {
                 return;
             }
 
             var argPos = 0;
-            if (!message.HasStringPrefix(_config["Prefix"], ref argPos) && !message.HasMentionPrefix(Client.CurrentUser, ref argPos))
+            if (!message.HasStringPrefix(this.config["Prefix"], ref argPos) && !message.HasMentionPrefix(this.Client.CurrentUser, ref argPos))
             {
                 return;
             }
 
-            var context = new SocketCommandContext(Client, message);
-            await _commandService.ExecuteAsync(context, argPos, _provider);
+            var context = new SocketCommandContext(this.Client, message);
+            await this.commandService.ExecuteAsync(context, argPos, this.provider);
         }
     }
 }
