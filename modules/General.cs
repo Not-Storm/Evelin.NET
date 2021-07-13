@@ -44,11 +44,9 @@
             var embed = new EvelinEmbedBuilder()
                 .WithTitle("Quote")
                 .WithDescription($"{quote} - {author}")
-                .WithFooter(this.Context.Client.CurrentUser.GetAvatarUrl() ?? this.Context.Client.CurrentUser.GetDefaultAvatarUrl(), $"{this.Context.Client.CurrentUser.Username}#{this.Context.Client.CurrentUser.Discriminator}")
+                .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
                 .Build();
             await this.ReplyAsync(embed: embed);
-
-            // check this command out once its a disaster
         }
     }
 }
