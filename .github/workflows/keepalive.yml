@@ -35,12 +35,15 @@ jobs:
           dotnet add package Microsoft.Extensions.Configuration
           dotnet add package Microsoft.Extensions.Hosting
           dotnet add package Microsoft.Extensions.DependencyInjection
+          
+      - name: getting ip
+        run: |
+          curl https://ipinfo.io/ip
 
       - name: Running DotNET
         timeout-minutes: 340
         continue-on-error: true
         run: |
-          curl https://ipinfo.io/ip
           dotnet run Program.cs
 
       - name: Loop Workflow
