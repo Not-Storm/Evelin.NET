@@ -35,8 +35,6 @@ jobs:
           dotnet add package Microsoft.Extensions.Configuration
           dotnet add package Microsoft.Extensions.Hosting
           dotnet add package Microsoft.Extensions.DependencyInjection
-          dotnet add package StyleCop.Analyzer
-          dotnet add package Discord.Net.Analyzer
 
       - name: Running DotNET
         timeout-minutes: 340
