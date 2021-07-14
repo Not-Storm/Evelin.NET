@@ -41,6 +41,7 @@
         {
             this.Client.MessageReceived += this.OnMessageReceived;
             this.commandService.CommandExecuted += this.OnCommandExecuted;
+            await this.Client.SetStatusAsync(UserStatus.Idle);
             await this.commandService.AddModulesAsync(Assembly.GetEntryAssembly(), this.provider);
         }
 

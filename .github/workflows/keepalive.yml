@@ -1,0 +1,55 @@
+name: Bot Run
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore: "Readme.md"
+  workflow_dispatch:
+
+env:
+  GitHubMail: "Storm@Shadow.com"
+  GitHubName: "StormShadow24k"
+  Branch: "main"
+  token: ${{ secrets.TOKEN}}
+  nasakey: ${{ secrets.NASAKEY}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Set Git Configs and Secrets
+        run: |
+          git config --global user.email ${GitHubMail}
+          git config --global user.name ${GitHubName}
+          git config --global credential.helper store
+          echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
+
+      - name: Installing Dependencies
+        run: |
+          dotnet add package Discord.NET
+          dotnet add package Discord.Addons.Hosting
+          dotnet add package Microsoft.Extensions.Configuration
+          dotnet add package Microsoft.Extensions.Hosting
+          dotnet add package Microsoft.Extensions.DependencyInjection
+          dotnet add package StyleCop.Analyzer
+          dotnet add package Discord.Net.Analyzer
+
+      - name: Running DotNET
+        timeout-minutes: 340
+        continue-on-error: true
+        run: |
+          dotnet run Program.cs
+
+      - name: Loop Workflow
+        continue-on-error: true
+        run: |
+          git clone https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} loop
+          cd loop || exit 1
+          echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
+          git add looper.txt
+          git commit -m "Workflow : Loop"
+          git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main

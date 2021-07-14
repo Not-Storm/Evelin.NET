@@ -1,6 +1,6 @@
 # Readme
 
-Discord bot in C# made using [Discord.NET](https://github.com/discord-net/Discord.Net) discord api wrapper writen in C#  
+Discord bot in C# made using [Discord.NET](https://github.com/discord-net/Discord.Net) discord api wrapper 
 
 P.S. Its a humble request from me to anyone working with this project to follow coding [conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions) for the sake of other fellow programmers. I will recommend [Stylecop.Alanyzer](https://www.nuget.org/packages/StyleCop.Analyzers/1.2.0-beta.354)and [Discord.NET analyzer](https://nuget.org/packages/Discord.Net.Analyzer/2.4.0?_src=template) as the analyzer for this project
 
@@ -14,13 +14,19 @@ give 2 values in this format
 
 ```
 {
-    "token": "your discord bot's token",
     "Prefix": "your discord bot's prefix"
 }
-```
-Save it in the base directory (\Evelin) itself
-then run `Program.cs` and it should run properly until there are errors in code  
+```  
+Then create a [enviroment variable](https://www.alphr.com/environment-variables-windows-10/) named `token`  
+this will contain your bot's token  
 
+Save it in the base directory (\Evelin) itself
+then run `Program.cs` and it should run 
+properly until there are errors in code  
+
+```
+dotnet run Program.cs
+```
 
 Dependencies
 ----------------------------------  
@@ -33,6 +39,8 @@ Discord.Addons.Hosting
 Microsoft.Extensions.Configuration
 Microsoft.Extensions.Hosting
 Microsoft.Extensions.DependencyInjection
+StyleCop.Analyzer
+Discord.Net.Analyzer
 ```
 How to install dependencies:  
 1) Using Command Line:

@@ -196,9 +196,3 @@ D:\Projects\Evelin\Evelin\bin\Debug\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Web.Razor.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Web.Helpers.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Web.WebPages.Deployment.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Web.WebPages.Razor.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Web.WebPages.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Microsoft.Web.Infrastructure.dll

@@ -23,6 +23,8 @@
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         private static async Task Main()
         {
+            var token = System.Environment.GetEnvironmentVariable("token");
+
             var builder = new HostBuilder()
                 .ConfigureAppConfiguration(x =>
                 {
@@ -47,7 +49,7 @@
                         MessageCacheSize = 200,
                     };
 
-                    config.Token = context.Configuration["token"];
+                    config.Token = token;
                 })
                 .UseCommandService((context, config) =>
                 {
