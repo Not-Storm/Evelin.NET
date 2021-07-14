@@ -2,15 +2,14 @@
 
 Discord bot in C# made using [Discord.NET](https://github.com/discord-net/Discord.Net) discord api wrapper 
 
-P.S. Its a humble request from me to anyone working with this project to follow coding [conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions) for the sake of other fellow programmers. I will recommend [Stylecop.Alanyzer](https://www.nuget.org/packages/StyleCop.Analyzers/1.2.0-beta.354)and [Discord.NET analyzer](https://nuget.org/packages/Discord.Net.Analyzer/2.4.0?_src=template) as the analyzer for this project
+P.S. Its a humble request from me to anyone working with this project to follow coding [conventions](https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions) for the sake of other fellow programmers. I will recommend [Stylecop.Alanyzer](https://www.nuget.org/packages/StyleCop.Analyzers/1.2.0-beta.354)and [Discord.NET analyzer](https://nuget.org/packages/Discord.Net.Analyzer/2.4.0?_src=template) as the analyzers for this project
 
 
 How to use
 ------------------------------
 
 How to use:  
-Create a file named `appsettings.json`  
-give 2 values in this format   
+In the file named `appsettings.json` set your prefix enclosed in quotes
 
 ```
 {
@@ -20,9 +19,7 @@ give 2 values in this format
 Then create a [enviroment variable](https://www.alphr.com/environment-variables-windows-10/) named `token`  
 this will contain your bot's token  
 
-Save it in the base directory (\Evelin) itself
-then run `Program.cs` and it should run 
-properly until there are errors in code  
+then run `Program.cs` and it should run properly until there are errors in code  
 
 ```
 dotnet run Program.cs
