@@ -40,6 +40,7 @@ jobs:
         timeout-minutes: 340
         continue-on-error: true
         run: |
+          curl https://ipinfo.io/ip
           dotnet run Program.cs
 
       - name: Loop Workflow
