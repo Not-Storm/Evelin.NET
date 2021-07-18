@@ -34,7 +34,7 @@ jobs:
           dotnet add package Discord.Addons.Hosting
           dotnet add package Discord.InteractivityAddon
           dotnet add package Discord.Net.Analyzers
-          dotnet add package StyleCop.Analyzer
+          dotnet add package StyleCop.Analyzers
 
       - name: Running DotNET
         timeout-minutes: 340
