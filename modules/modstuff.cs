@@ -28,7 +28,7 @@
                 var messages = await this.Context.Channel.GetMessagesAsync(amount + 1).FlattenAsync();
                 await (this.Context.Channel as SocketTextChannel).DeleteMessagesAsync(messages);
 
-                var confirm = await this.ReplyAsync($"{messages.Count()} messages have been deleted");
+                var confirm = await this.ReplyAsync($"{messages.Count() - 1} messages have been deleted");
                 await Task.Delay(2500);
                 await confirm.DeleteAsync();
             }
