@@ -40,7 +40,11 @@ StyleCop.Analyzer
 How to install dependencies:  
 1) Using Command Line:
 ```
-dotnet add package "package url without quotes"
+dotnet add package Discord.Net
+dotnet add package Discord.Addons.Hosting
+dotnet add package Discord.InteractivityAddon
+dotnet add package Discord.Net.Analyzers
+dotnet add package StyleCop.Analyzer
 ```
 This will automatically install the latest version of packages. The url can be found [here](https://nuget.org)  
 
