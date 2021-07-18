@@ -55,7 +55,7 @@
                 {
                     config.CaseSensitiveCommands = false;
                     config.LogLevel = LogSeverity.Debug;
-                    config.DefaultRunMode = RunMode.Async;
+                    config.DefaultRunMode = RunMode.Sync;
                 })
                 .ConfigureServices((context, services) =>
                 {

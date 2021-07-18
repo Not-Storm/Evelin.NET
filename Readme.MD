@@ -31,13 +31,11 @@ Dependencies
 Dependencies required:
 
 ```
-Discord.NET
+Discord.Net
 Discord.Addons.Hosting
-Microsoft.Extensions.Configuration
-Microsoft.Extensions.Hosting
-Microsoft.Extensions.DependencyInjection
+Discord.InteractivityAddon
+Discord.Net.Analyzers
 StyleCop.Analyzer
-Discord.Net.Analyzer
 ```
 How to install dependencies:  
 1) Using Command Line:

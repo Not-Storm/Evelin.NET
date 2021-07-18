@@ -28,7 +28,7 @@
         /// A command to get a random quote from zenquote api.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        [Command("quote")]
+        [Command("quote", RunMode = RunMode.Async)]
         [Alias("inspire")]
         public async Task QuoteAsync()
         {

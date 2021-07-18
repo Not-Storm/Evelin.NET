@@ -16,6 +16,19 @@
           "lib/net5.0/Discord.Addons.Hosting.dll": {}
         }
       },
+      "Discord.InteractivityAddon/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Discord.Net.Core": "2.3.1",
+          "Discord.Net.WebSocket": "2.3.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Discord.InteractivityAddon.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Discord.InteractivityAddon.dll": {}
+        }
+      },
       "Discord.Net/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -1407,6 +1420,19 @@
         "lib/net5.0/Discord.Addons.Hosting.xml",
         "lib/netstandard2.1/Discord.Addons.Hosting.dll",
         "lib/netstandard2.1/Discord.Addons.Hosting.xml"
+      ]
+    },
+    "Discord.InteractivityAddon/2.4.0": {
+      "sha512": "5d8xPKHDZmcnajPC/PgSa/jVPNwA1dn/GHBAAzy/mCEYcrxjQnhEhJVYeIuzogLHPLo9/aC0rhQYq93nCvtYaw==",
+      "type": "package",
+      "path": "discord.interactivityaddon/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "discord.interactivityaddon.2.4.0.nupkg.sha512",
+        "discord.interactivityaddon.nuspec",
+        "lib/netstandard2.0/Discord.InteractivityAddon.dll"
       ]
     },
     "Discord.Net/2.4.0": {
@@ -4228,6 +4254,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Discord.Addons.Hosting >= 4.0.2",
+      "Discord.InteractivityAddon >= 2.4.0",
       "Discord.Net >= 2.4.0",
       "Discord.Net.Analyzers >= 2.4.0",
       "StyleCop.Analyzers >= 1.1.118"
@@ -4235,8 +4262,7 @@
   },
   "packageFolders": {
     "C:\\Users\\SHAURYA\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4248,14 +4274,12 @@
       "outputPath": "D:\\Projects\\Evelin\\Evelin\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
         "C:\\Users\\SHAURYA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -4283,6 +4307,10 @@
           "Discord.Addons.Hosting": {
             "target": "Package",
             "version": "[4.0.2, )"
+          },
+          "Discord.InteractivityAddon": {
+            "target": "Package",
+            "version": "[2.4.0, )"
           },
           "Discord.Net": {
             "target": "Package",

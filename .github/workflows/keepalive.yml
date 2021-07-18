@@ -30,15 +30,11 @@ jobs:
 
       - name: Installing Dependencies
         run: |
-          dotnet add package Discord.NET
-          dotnet add package Discord.Addons.Hosting
-          dotnet add package Microsoft.Extensions.Configuration
-          dotnet add package Microsoft.Extensions.Hosting
-          dotnet add package Microsoft.Extensions.DependencyInjection
-          
-      - name: getting ip
-        run: |
-          curl https://ipinfo.io/ip
+        dotnet add package Discord.Net
+        dotnet add package Discord.Addons.Hosting
+        dotnet add package Discord.InteractivityAddon
+        dotnet add package Discord.Net.Analyzers
+        dotnet add package StyleCop.Analyzer
 
       - name: Running DotNET
         timeout-minutes: 340
