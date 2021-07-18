@@ -30,11 +30,11 @@ jobs:
 
       - name: Installing Dependencies
         run: |
-        dotnet add package Discord.Net
-        dotnet add package Discord.Addons.Hosting
-        dotnet add package Discord.InteractivityAddon
-        dotnet add package Discord.Net.Analyzers
-        dotnet add package StyleCop.Analyzer
+          dotnet add package Discord.Net
+          dotnet add package Discord.Addons.Hosting
+          dotnet add package Discord.InteractivityAddon
+          dotnet add package Discord.Net.Analyzers
+          dotnet add package StyleCop.Analyzer
 
       - name: Running DotNET
         timeout-minutes: 340
