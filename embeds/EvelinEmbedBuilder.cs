@@ -6,7 +6,7 @@
     /// <summary>
     /// A custom embed builder to prevent repetitive code.
     /// </summary>
-    internal class EvelinEmbedBuilder : EmbedBuilder
+    public class EvelinEmbedBuilder : EmbedBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="EvelinEmbedBuilder"/> class.

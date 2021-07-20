@@ -66,6 +66,12 @@
 
         private async Task OnMessageReceived(SocketMessage socketMessage)
         {
+            var channelName = socketMessage.Channel.ToString();
+            if (channelName.StartsWith("@"))
+            {
+                return;
+            }
+
             if (socketMessage is not SocketUserMessage message)
             {
                 return;

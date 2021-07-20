@@ -3,6 +3,7 @@
     using System;
     using System.Net.Http;
     using System.Threading.Tasks;
+    using Discord;
     using Discord.Commands;
     using Evelin.Embeds;
     using Newtonsoft.Json.Linq;
@@ -19,8 +20,12 @@
         [Command("meme", RunMode = RunMode.Async)]
         public async Task MemeAsync()
         {
+            string[] subreddits = { "https://reddit.com/r/memes/", "https://reddit.com/r/dankmemes", "https://www.reddit.com/r/wholesomememes/", "https://www.reddit.com/r/wholesomememes/", "https://www.reddit.com/r/raimimemes/", "https://www.reddit.com/r/okbuddyretard/", "https://www.reddit.com/r/okbuddyretard/" };
+            Random rand = new Random();
+            var number = rand.Next(0, subreddits.Length);
+            var selectedSubreddit = subreddits[number];
             var client = new HttpClient();
-            var result = await client.GetStringAsync("https://reddit.com/r/memes/random.json?limit=1");
+            var result = await client.GetStringAsync($"{selectedSubreddit}random.json?limit=1");
             JArray memearray = JArray.Parse(result);
             JObject post = JObject.Parse(memearray[0]["data"]["children"][0]["data"].ToString());
 
@@ -28,7 +33,6 @@
                 .WithImageUrl(post["url"].ToString())
                 .WithTitle(post["title"].ToString())
                 .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
-                .WithUrl("https://reddit.com" + post["permalink"].ToString())
                 .Build();
             await this.ReplyAsync(embed: meme);
         }
@@ -54,7 +58,6 @@
                 .WithImageUrl(post["url"].ToString())
                 .WithTitle(post["title"].ToString())
                 .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
-                .WithUrl("https://reddit.com" + post["permalink"].ToString())
                 .Build();
             await this.ReplyAsync(embed: meme);
         }
@@ -75,7 +78,6 @@
                 .WithImageUrl(post["url"].ToString())
                 .WithTitle(post["title"].ToString())
                 .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
-                .WithUrl("https://reddit.com" + post["permalink"].ToString())
                 .Build();
             await this.ReplyAsync(embed: meme);
         }
@@ -86,6 +88,7 @@
         /// <param name="searchquery">The subreddit to be searched.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("reddit", RunMode = RunMode.Async)]
+        [Alias("r")]
         public async Task RedditAsync(string searchquery)
         {
             var client = new HttpClient();
@@ -98,14 +101,31 @@
 
             JArray memearray = JArray.Parse(result);
             JObject post = JObject.Parse(memearray[0]["data"]["children"][0]["data"].ToString());
-
-            var meme = new EvelinEmbedBuilder()
-                .WithImageUrl(post["url"].ToString())
-                .WithTitle(post["title"].ToString())
-                .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
-                .WithUrl("https://reddit.com" + post["permalink"].ToString())
-                .Build();
-            await this.ReplyAsync(embed: meme);
+            if ((bool)post["over_18"])
+            {
+                if ((this.Context.Channel as ITextChannel).IsNsfw)
+                {
+                    var meme = new EvelinEmbedBuilder()
+                        .WithImageUrl(post["url"].ToString())
+                        .WithTitle(post["title"].ToString())
+                        .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
+                        .Build();
+                    await this.ReplyAsync(embed: meme);
+                }
+                else
+                {
+                    await this.ReplyAsync("The returned post was NSFW, use a NSFW channel to see the post or use a different subreddit");
+                }
+            }
+            else
+            {
+                var meme = new EvelinEmbedBuilder()
+                    .WithImageUrl(post["url"].ToString())
+                    .WithTitle(post["title"].ToString())
+                    .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
+                    .Build();
+                await this.ReplyAsync(embed: meme);
+            }
         }
     }
 }
