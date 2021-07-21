@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XfHbdITQXdmtBiN94DckKPzxntc9L67ka3E8HycTY8NTf5iY1jA69eu9n7P9pcCsB4Kc1OVuEV0jmRt04WHshw==",
+  "dgSpecHash": "a+tuQfSsfAgbvli+N37BOMFwnE0BCyAuaex/BOQlEGp6yQMuuzlSvVBHid/TEcXZEGXJzhUtwVtbppwqUI8sYw==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Evelin\\Evelin\\Evelin.csproj",
+  "projectFilePath": "D:\\Projects\\Evelin\\Evelin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SHAURYA\\.nuget\\packages\\discord.addons.hosting\\4.0.2\\discord.addons.hosting.4.0.2.nupkg.sha512",
     "C:\\Users\\SHAURYA\\.nuget\\packages\\discord.interactivityaddon\\2.4.0\\discord.interactivityaddon.2.4.0.nupkg.sha512",

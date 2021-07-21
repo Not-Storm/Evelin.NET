@@ -41,8 +41,14 @@
         {
             this.Client.MessageReceived += this.OnMessageReceived;
             this.commandService.CommandExecuted += this.OnCommandExecuted;
+            this.Client.JoinedGuild += OnGuildJoin;
             await this.Client.SetStatusAsync(UserStatus.Idle);
             await this.commandService.AddModulesAsync(Assembly.GetEntryAssembly(), this.provider);
+        }
+
+        private async Task OnGuildJoin(SocketGuild arg)
+        {
+            // add a welcome msg here 
         }
 
         private async Task OnCommandExecuted(Optional<CommandInfo> commandInfo, ICommandContext commandContext, IResult result)
@@ -66,12 +72,6 @@
 
         private async Task OnMessageReceived(SocketMessage socketMessage)
         {
-            var channelName = socketMessage.Channel.ToString();
-            if (channelName.StartsWith("@"))
-            {
-                return;
-            }
-
             if (socketMessage is not SocketUserMessage message)
             {
                 return;
@@ -85,7 +85,7 @@
             var argPos = 0;
             if (!message.HasStringPrefix(this.config["Prefix"], ref argPos) && !message.HasMentionPrefix(this.Client.CurrentUser, ref argPos))
             {
-                return;
+               return;
             }
 
             var context = new SocketCommandContext(this.Client, message);

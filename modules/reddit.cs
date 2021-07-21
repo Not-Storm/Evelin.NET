@@ -20,7 +20,7 @@
         [Command("meme", RunMode = RunMode.Async)]
         public async Task MemeAsync()
         {
-            string[] subreddits = { "https://reddit.com/r/memes/", "https://reddit.com/r/dankmemes", "https://www.reddit.com/r/wholesomememes/", "https://www.reddit.com/r/wholesomememes/", "https://www.reddit.com/r/raimimemes/", "https://www.reddit.com/r/okbuddyretard/", "https://www.reddit.com/r/okbuddyretard/" };
+            string[] subreddits = { "https://reddit.com/r/memes/", "https://reddit.com/r/dankmemes/", "https://www.reddit.com/r/wholesomememes/" };
             Random rand = new Random();
             var number = rand.Next(0, subreddits.Length);
             var selectedSubreddit = subreddits[number];
@@ -103,18 +103,25 @@
             JObject post = JObject.Parse(memearray[0]["data"]["children"][0]["data"].ToString());
             if ((bool)post["over_18"])
             {
-                if ((this.Context.Channel as ITextChannel).IsNsfw)
+                if (this.Context.IsPrivate)
                 {
-                    var meme = new EvelinEmbedBuilder()
-                        .WithImageUrl(post["url"].ToString())
-                        .WithTitle(post["title"].ToString())
-                        .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
-                        .Build();
-                    await this.ReplyAsync(embed: meme);
+                    await this.ReplyAsync("The reddit resulted in a NSFW result, Kindly use a NSFW channel in a server to see it");
                 }
                 else
                 {
-                    await this.ReplyAsync("The returned post was NSFW, use a NSFW channel to see the post or use a different subreddit");
+                    if ((this.Context.Channel as ITextChannel).IsNsfw)
+                    {
+                        var meme = new EvelinEmbedBuilder()
+                            .WithImageUrl(post["url"].ToString())
+                            .WithTitle(post["title"].ToString())
+                            .WithFooter($"{this.Context.User}", this.Context.User.GetAvatarUrl() ?? this.Context.User.GetDefaultAvatarUrl())
+                            .Build();
+                        await this.ReplyAsync(embed: meme);
+                    }
+                    else
+                    {
+                        await this.ReplyAsync("The resulting post was NSFW, kindly use a NSFW channel to see it or use a different subreddit");
+                    }
                 }
             }
             else
