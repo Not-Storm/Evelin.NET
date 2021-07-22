@@ -6,7 +6,9 @@ How to use
 ------------------------------
 
 How to use:  
-In the file named `appsettings.json` set your prefix enclosed in quotes
+`Evelin\EvelinInfrastructure` contains the files for the database while `Evelin\Evelin` contains the source codef for the bot
+    
+In the file `Evelin\appsettings.json` set your prefix enclosed in quotes
 
 ```
 {
@@ -16,9 +18,11 @@ In the file named `appsettings.json` set your prefix enclosed in quotes
 Then create a [enviroment variable](https://www.alphr.com/environment-variables-windows-10/) named `token`  
 this will contain your bot's token  
 
-Run the project by doing
-
+    
+The main project is inside the Evelin directory  
+Run the project by
 ```
+cd Evelin
 dotnet run Program.cs
 ```
 
@@ -36,17 +40,23 @@ Microsoft.EntityFrameworkCore
 Pomelo.EntityFrameworkCore.MySql
 StyleCop.Analyzers
 ```  
-Note that `Microsoft.EntityFrameworkCore` and `Pomelo.EntityFrameworkCore.MySql` will be installed for the 2nd database project inside `EvelinInfrastructure`  
+
 
 How to install dependencies:  
 1) Using Command Line:
 ```
+cd Evelin
 dotnet add package Discord.Net
 dotnet add package Discord.Addons.Hosting
 dotnet add package Discord.InteractivityAddon
 dotnet add package Discord.Net.Analyzers
 dotnet add package StyleCop.Analyzers
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Pomelo.EntityFrameworkCore.MySql
+cd ..
 cd EvelinInfrastructure
+dotnet add package Discord.Net.Analyzers
+dotnet add package StyleCop.Analyzers
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Pomelo.EntityFrameworkCore.MySql
 ```

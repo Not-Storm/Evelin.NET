@@ -1,0 +1,12 @@
+D:\Projects\Evelin\EvelinInfrastructure\bin\Debug\net5.0\EvelinInfrastructure.deps.json
+D:\Projects\Evelin\EvelinInfrastructure\bin\Debug\net5.0\EvelinInfrastructure.dll
+D:\Projects\Evelin\EvelinInfrastructure\bin\Debug\net5.0\ref\EvelinInfrastructure.dll
+D:\Projects\Evelin\EvelinInfrastructure\bin\Debug\net5.0\EvelinInfrastructure.pdb
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.csproj.AssemblyReference.cache
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.AssemblyInfoInputs.cache
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.AssemblyInfo.cs
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.csproj.CoreCompileInputs.cache
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.dll
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\ref\EvelinInfrastructure.dll
+D:\Projects\Evelin\EvelinInfrastructure\obj\Debug\net5.0\EvelinInfrastructure.pdb

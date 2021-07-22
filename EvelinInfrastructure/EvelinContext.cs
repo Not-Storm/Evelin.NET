@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace EvelinInfrastructure
+﻿namespace EvelinInfrastructure
 {
+    using Microsoft.EntityFrameworkCore;
+
     /// <summary>
     /// PlaceHolder text.
     /// </summary>
