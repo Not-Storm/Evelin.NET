@@ -41,14 +41,14 @@
         {
             this.Client.MessageReceived += this.OnMessageReceived;
             this.commandService.CommandExecuted += this.OnCommandExecuted;
-            this.Client.JoinedGuild += OnGuildJoin;
+            this.Client.JoinedGuild += this.OnGuildJoin;
             await this.Client.SetStatusAsync(UserStatus.Idle);
             await this.commandService.AddModulesAsync(Assembly.GetEntryAssembly(), this.provider);
         }
 
         private async Task OnGuildJoin(SocketGuild arg)
         {
-            // add a welcome msg here 
+            await arg.DefaultChannel.SendMessageAsync($"Hello everyone, Its Evelin here\nFirst of all thank you for inviting me here\nIf you will like to contribute to the bot you can get the source code at https://www.github.com/StormShadow24k/Evelin.NET \nUse -help or <@!834660939226677279> help to see all the commands\nThe default prefix is '-' you can also tag the bot instead of using the prefix");
         }
 
         private async Task OnCommandExecuted(Optional<CommandInfo> commandInfo, ICommandContext commandContext, IResult result)
