@@ -35,8 +35,6 @@ jobs:
           dotnet add package Discord.InteractivityAddon
           dotnet add package Discord.Net
           dotnet add package Discord.Net.Analyzers
-          dotnet add package Microsoft.EntityFrameworkCore
-          dotnet add package Pomelo.EntityFrameworkCore.MySql
           dotnet add package StyleCop.Analyzers
       
       - name: Installing Dependencies for database
@@ -53,4 +51,3 @@ jobs:
         run: |
           cd Evelin
           dotnet run Program.cs
-

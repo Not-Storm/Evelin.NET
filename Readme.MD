@@ -6,7 +6,7 @@ How to use
 ------------------------------
 
 How to use:  
-`Evelin\EvelinInfrastructure` contains the files for the database while `Evelin\Evelin` contains the source codef for the bot
+`Evelin\EvelinInfrastructure` contains the files for the database while `Evelin\Evelin` contains the source code for the bot
     
 In the file `Evelin\appsettings.json` set your prefix enclosed in quotes
 
@@ -51,8 +51,6 @@ dotnet add package Discord.Addons.Hosting
 dotnet add package Discord.InteractivityAddon
 dotnet add package Discord.Net.Analyzers
 dotnet add package StyleCop.Analyzers
-dotnet add package Microsoft.EntityFrameworkCore
-dotnet add package Pomelo.EntityFrameworkCore.MySql
 cd ..
 cd EvelinInfrastructure
 dotnet add package Discord.Net.Analyzers
