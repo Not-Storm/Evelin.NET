@@ -6,7 +6,7 @@ How to use
 ------------------------------
 
 How to use:  
-`Evelin\EvelinInfrastructure` contains the files for the database while `Evelin\Evelin` contains the source codef for the bot
+`Evelin\EvelinInfrastructure` contains the files for the database while `Evelin\Evelin` contains the source code for the bot
     
 In the file `Evelin\appsettings.json` set your prefix enclosed in quotes
 
