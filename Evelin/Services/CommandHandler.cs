@@ -8,6 +8,7 @@
     using Discord.Addons.Hosting;
     using Discord.Commands;
     using Discord.WebSocket;
+    using Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Logging;
 
@@ -16,6 +17,7 @@
     /// </summary>
     public class CommandHandler : DiscordClientService
     {
+        private readonly Servers server;
         private readonly IServiceProvider provider;
         private readonly CommandService commandService;
         private readonly IConfiguration config;
@@ -28,12 +30,14 @@
         /// <param name="provider">For injecting <see cref="IServiceProvider"/>.</param>
         /// <param name="commandService">For injecting <see cref="CommandService"/>.</param>
         /// <param name="config">For injecting <see cref="IConfiguration"/>.</param>
-        public CommandHandler(DiscordSocketClient client, ILogger<CommandHandler> logger, IServiceProvider provider, CommandService commandService, IConfiguration config)
+        /// <param name="server">For injecting <see cref="Servers"/>.</param>
+        public CommandHandler(DiscordSocketClient client, ILogger<CommandHandler> logger, IServiceProvider provider, CommandService commandService, IConfiguration config, Servers server)
             : base(client, logger)
         {
             this.provider = provider;
             this.commandService = commandService;
             this.config = config;
+            this.server = server;
         }
 
         /// <inheritdoc/>
@@ -48,7 +52,7 @@
 
         private async Task OnGuildJoin(SocketGuild arg)
         {
-            await arg.DefaultChannel.SendMessageAsync($"Hello everyone, Its Evelin here\nFirst of all thank you for inviting me here\nIf you will like to contribute to the bot you can get the source code at https://www.github.com/StormShadow24k/Evelin.NET \nUse -help or <@!834660939226677279> help to see all the commands\nThe default prefix is '-' you can also tag the bot instead of using the prefix");
+            await arg.DefaultChannel.SendMessageAsync($"Hello everyone, Its Evelin here\nFirst of all thank you for inviting me here\nIf you will like to contribute to the bot you can get the source code at https://www.github.com/Not-Storm/Evelin.NET \nUse -help or <@!834660939226677279> help to see all the commands\nThe default prefix is '-' you can also tag the bot instead of using the prefix");
         }
 
         private async Task OnCommandExecuted(Optional<CommandInfo> commandInfo, ICommandContext commandContext, IResult result)
@@ -82,8 +86,10 @@
                 return;
             }
 
+            var prefix = await this.server.GetGuildPrefix((message.Channel as SocketGuildChannel).Guild.Id) ?? "-";
+
             var argPos = 0;
-            if (!message.HasStringPrefix(this.config["Prefix"], ref argPos) && !message.HasMentionPrefix(this.Client.CurrentUser, ref argPos))
+            if (!message.HasStringPrefix(prefix, ref argPos) && !message.HasMentionPrefix(this.Client.CurrentUser, ref argPos))
             {
                return;
             }

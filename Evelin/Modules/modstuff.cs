@@ -17,6 +17,7 @@
         /// <param name="amount">Number of messages to be deleted.</param>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("purge", RunMode = RunMode.Async)]
+        [Summary("Clears given number of messages")]
         [Alias("clear")]
         [RequireContext(ContextType.Guild)]
         [RequireUserPermission(ChannelPermission.ManageMessages)]

@@ -8,10 +8,15 @@ on:
 
 env:
   GitHubMail: "Storm@Shadow.com"
-  GitHubName: "StormShadow24k"
+  GitHubName: "Not-Storm"
   Branch: "main"
   token: ${{ secrets.TOKEN}}
   nasakey: ${{ secrets.NASAKEY}}
+  databaseUrl: ${{secrets.DATABASEURL}}
+  databaseUsername: ${{secrets.DATABASEUSERNAME}}
+  databasePassword: ${{secrets.DATABASEPASSWORD}}
+  databaseName: ${{secrets.DATABASENAME}}
+
 
 jobs:
   build:
@@ -39,11 +44,13 @@ jobs:
       
       - name: Installing Dependencies for database
         run: |
-          cd EvelinInfrastructure
-          dotnet add package Discord.Net.Analyzers
+          cd Infrastructure
           dotnet add package Microsoft.EntityFrameworkCore
-          dotnet add package Pomelo.EntityFrameworkCore.MySql
           dotnet add package StyleCop.Analyzers
+          dotnet add package Npgsql
+          dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+          dotnet add package Microsoft.EntityFrameworkCore.Tools
+
 
       - name: Running DotNET
         timeout-minutes: 340

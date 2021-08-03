@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Evelin", "Evelin\Evelin.csproj", "{A8D72385-C95F-4987-B844-2144EE89B401}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvelinInfrastructure", "EvelinInfrastructure\EvelinInfrastructure.csproj", "{9764BA84-18E2-47A0-9B45-9B44C6AF0550}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9764BA84-18E2-47A0-9B45-9B44C6AF0550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

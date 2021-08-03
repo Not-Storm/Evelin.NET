@@ -7,6 +7,7 @@
     using Discord.Commands;
     using Discord.WebSocket;
     using Evelin.Services;
+    using Infrastructure;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
@@ -23,7 +24,7 @@
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         private static async Task Main()
         {
-            var token = System.Environment.GetEnvironmentVariable("token");
+            var token = System.Environment.GetEnvironmentVariable("TOKEN");
 
             var builder = new HostBuilder()
                 .ConfigureAppConfiguration(x =>
@@ -61,7 +62,9 @@
                 .ConfigureServices((context, services) =>
                 {
                     services
-                        .AddHostedService<CommandHandler>();
+                        .AddHostedService<CommandHandler>()
+                        .AddDbContext<EvelinContext>()
+                        .AddSingleton<Servers>();
                 })
                 .UseConsoleLifetime();
 

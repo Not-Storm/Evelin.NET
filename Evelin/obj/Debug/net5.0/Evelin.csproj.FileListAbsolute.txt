@@ -355,6 +355,8 @@ D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstrac
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Microsoft.Extensions.Caching.Memory.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\MySqlConnector.dll
-D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Npgsql.dll
+D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\Projects\Evelin\Evelin\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Infrastructure.dll
+D:\Projects\Evelin\Evelin\bin\Debug\net5.0\Infrastructure.pdb

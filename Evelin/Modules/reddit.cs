@@ -18,6 +18,7 @@
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("meme", RunMode = RunMode.Async)]
+        [Summary("Gets a meme from a random sub reddit")]
         public async Task MemeAsync()
         {
             string[] subreddits = { "https://reddit.com/r/memes/", "https://reddit.com/r/dankmemes/", "https://www.reddit.com/r/wholesomememes/" };
@@ -43,6 +44,7 @@
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("animememe", RunMode = RunMode.Async)]
         [Alias("animeme")]
+        [Summary("Get a anime meme from a random sub reddit")]
         public async Task AnimememeAsync()
         {
             string[] redditNames = { "https://www.reddit.com/r/goodanimemes/", "https://www.reddit.com/r/Animemes/", "https://www.reddit.com/r/anime_memes/", "https://www.reddit.com/r/animememes/", "https://www.reddit.com/r/wholesomeanimemes/" };
@@ -67,6 +69,7 @@
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("csmeme", RunMode = RunMode.Async)]
+        [Summary("Get a computer science meme")]
         public async Task CsmemeAsync()
         {
             var client = new HttpClient();
@@ -89,6 +92,7 @@
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("reddit", RunMode = RunMode.Async)]
         [Alias("r")]
+        [Summary("Gets a random post from the given sub reddit")]
         public async Task RedditAsync(string searchquery)
         {
             var client = new HttpClient();

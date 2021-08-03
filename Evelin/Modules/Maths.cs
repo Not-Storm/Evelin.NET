@@ -16,6 +16,7 @@
         /// <param name="num2">Second number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("add")]
+        [Summary("Add 2 numbers")]
         [Alias("plus")]
         public async Task AddAsync(double num1, double num2)
         {
@@ -30,6 +31,7 @@
         /// <param name="num2">The second number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("subtract")]
+        [Summary("Subtract 2 numbers")]
         [Alias("sub", "minus")]
         public async Task SubtractAsync(double num1, double num2)
         {
@@ -44,6 +46,7 @@
         /// <param name="num2">The second number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("multiply")]
+        [Summary("Multiply 2 numbers")]
         [Alias("into")]
         public async Task MultiplyAsync(double num1, double num2)
         {
@@ -58,6 +61,7 @@
         /// <param name="num2">The second number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("divide")]
+        [Summary("Divide 2 numbers")]
         [Alias("by")]
         public async Task DivideAsync(double num1, double num2)
         {
@@ -72,6 +76,7 @@
         /// <param name="num2">the second number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("remainder")]
+        [Summary("Gets the remainder after dividing 2 numbers")]
         public async Task RemainderAsync(double num1, double num2)
         {
             await this.Context.Channel.TriggerTypingAsync();
@@ -86,6 +91,7 @@
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("exponent")]
         [Alias("power")]
+        [Summary("Gets the value after raising the power of a number")]
         public async Task ExponentAsync(double num1, double num2)
         {
             await this.Context.Channel.TriggerTypingAsync();
@@ -98,6 +104,7 @@
         /// <param name="num">the number.</param>
         /// <returns>A <see cref="Task"/> representing the result of the asynchronous operation.</returns>
         [Command("root")]
+        [Summary("Gets the square root of a number")]
         public async Task RootAsync(double num)
         {
             await this.Context.Channel.TriggerTypingAsync();
