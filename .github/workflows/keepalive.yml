@@ -12,10 +12,10 @@ env:
   Branch: "main"
   token: ${{ secrets.TOKEN}}
   nasakey: ${{ secrets.NASAKEY}}
-  databaseUrl: ${{secrets.DATABASEURL}}
-  databaseUsername: ${{secrets.DATABASEUSERNAME}}
-  databasePassword: ${{secrets.DATABASEPASSWORD}}
-  databaseName: ${{secrets.DATABASENAME}}
+  PostgresSQL_Database: ${{secrets.DATABASEURL}}
+  PostgresSQL_Username: ${{secrets.DATABASEUSERNAME}}
+  PostgresSQL_Password: ${{secrets.DATABASEPASSWORD}}
+  PostgresSQL_DatabaseName: ${{secrets.DATABASENAME}}
 
 
 jobs:
