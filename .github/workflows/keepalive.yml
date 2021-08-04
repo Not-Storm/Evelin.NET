@@ -45,11 +45,11 @@ jobs:
       - name: Installing Dependencies for database
         run: |
           cd Infrastructure
-          dotnet add package Microsoft.EntityFrameworkCore
+          dotnet add package Microsoft.EntityFrameworkCore -v 5.0.7
           dotnet add package StyleCop.Analyzers
-          dotnet add package Npgsql
-          dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
-          dotnet add package Microsoft.EntityFrameworkCore.Tools
+          dotnet add package Npgsql -v 5.0.7
+          dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL -v 5.0.7
+          dotnet add package Microsoft.EntityFrameworkCore.Tools -v 5.0.7
 
 
       - name: Running DotNET
