@@ -10,7 +10,7 @@ env:
   GitHubMail: "Storm@Shadow.com"
   GitHubName: "Not-Storm"
   Branch: "main"
-  token: ${{ secrets.TOKEN}}
+  TOKEN: ${{ secrets.TOKEN}}
   nasakey: ${{ secrets.NASAKEY}}
   PostgresSQL_Database: ${{secrets.DATABASEURL}}
   PostgresSQL_Username: ${{secrets.DATABASEUSERNAME}}
