@@ -16,7 +16,7 @@
         private readonly Servers server;
 
         /// <summary>
-        /// A basic command which replies with gateway to client latency upon use.
+        /// A command to get client to gateway latency.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the result of Asynchronous Task.</returns>
         [Command("ping")]
@@ -30,7 +30,7 @@
         }
 
         /// <summary>
-        /// A command to get a random quote from zenquote api.
+        /// A command to get a quote from zenquotes api.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
         [Command("quote", RunMode = RunMode.Async)]

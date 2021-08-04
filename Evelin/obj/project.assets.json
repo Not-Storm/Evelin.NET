@@ -1530,7 +1530,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Discord.Net.Analyzers": "2.4.0",
+          "Microsoft.EntityFrameworkCore": "5.0.7",
           "Npgsql": "5.0.7",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.7"
         },

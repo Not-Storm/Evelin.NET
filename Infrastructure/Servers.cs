@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
 
     /// <summary>
     /// Class which allows Getting and setting data of Server table.
@@ -54,7 +55,7 @@
                 .Select(x => x.Prefix)
                 .FirstOrDefaultAsync();
 
-            return Task.FromResult(prefix);
+            return await Task.FromResult(prefix);
         }
     }
 }

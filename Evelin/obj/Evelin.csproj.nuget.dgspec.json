@@ -130,15 +130,15 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Discord.Net.Analyzers": {
+            "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.4.0, )"
+              "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.8, )"
+              "version": "[5.0.7, )"
             },
             "Npgsql": {
               "target": "Package",

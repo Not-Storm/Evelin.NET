@@ -86,7 +86,7 @@
                 return;
             }
 
-            var prefix = await this.server.GetGuildPrefix((message.Channel as SocketGuildChannel).Guild.Id) ?? "-";
+            var prefix = await this.server.GetGuildPrefix((message.Channel as SocketGuildChannel).Guild.Id) ?? this.config["Prefix"];
 
             var argPos = 0;
             if (!message.HasStringPrefix(prefix, ref argPos) && !message.HasMentionPrefix(this.Client.CurrentUser, ref argPos))

@@ -1,8 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.github\\workflows"
+    "\\.github\\workflows",
+    "\\Evelin",
+    "\\Evelin\\Services",
+    "\\Infrastructure",
+    "\\Infrastructure\\Migrations"
   ],
-  "SelectedNode": "\\Evelin",
+  "SelectedNode": "\\Evelin\\Evelin.csproj",
   "PreviewInSolutionExplorer": false
 }
