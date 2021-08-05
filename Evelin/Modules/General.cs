@@ -13,7 +13,12 @@
     /// </summary>
     public class General : ModuleBase<SocketCommandContext>
     {
-        private readonly Servers server;
+        private readonly Servers _servers;
+
+        public General(Servers servers)
+        {
+            _servers = servers;
+        }
 
         /// <summary>
         /// A command to get client to gateway latency.
@@ -64,7 +69,8 @@
         {
             if (newprefix is null)
             {
-                await this.ReplyAsync("Give the prefix with the message");
+                var guildprefix = await _servers.GetGuildPrefix(Context.Guild.Id) ?? "-";
+                await ReplyAsync($"The current prefix of bot is `{guildprefix}`");
                 return;
             }
 
@@ -74,7 +80,13 @@
                 return;
             }
 
-            await this.server.ModifyGuildPrefix(this.Context.Guild.Id, newprefix);
+            if ( newprefix == "def" || newprefix == "default")
+            {
+                await this._servers.ModifyGuildPrefix(this.Context.Guild.Id, "-")
+                await this.ReplyAsync($"The prefix was changed back to the default prefix `-`")
+            }
+
+            await this._servers.ModifyGuildPrefix(this.Context.Guild.Id, newprefix);
             await this.ReplyAsync($"Bot's prefix for the guild was changed to `{newprefix}`");
         }
     }

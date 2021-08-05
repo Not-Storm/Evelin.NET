@@ -33,7 +33,7 @@
 
             if (server is null)
             {
-                this.context.Add(new Server { Id = id, Prefix = prefix });
+                this.context.Servers.Add(new Server { Id = id, Prefix = prefix });
             }
             else
             {
