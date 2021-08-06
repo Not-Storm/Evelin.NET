@@ -6,6 +6,7 @@
     using Discord.Commands;
     using Evelin.Embeds;
     using Infrastructure;
+    using Microsoft.Extensions.Configuration;
     using Newtonsoft.Json.Linq;
 
     /// <summary>
@@ -13,11 +14,17 @@
     /// </summary>
     public class General : ModuleBase<SocketCommandContext>
     {
-        private readonly Servers _servers;
+        private readonly Servers servers;
+        private readonly IConfiguration config;
 
-        public General(Servers servers)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="General"/> class.
+        /// </summary>
+        /// <param name="servers">For dependency injection.</param>
+        public General(Servers servers, IConfiguration config)
         {
-            _servers = servers;
+            this.servers = servers;
+            this.config = config;
         }
 
         /// <summary>
@@ -69,8 +76,8 @@
         {
             if (newprefix is null)
             {
-                var guildprefix = await _servers.GetGuildPrefix(Context.Guild.Id) ?? "-";
-                await ReplyAsync($"The current prefix of bot is `{guildprefix}`");
+                var guildprefix = await this.servers.GetGuildPrefix(this.Context.Guild.Id) ?? "-";
+                await this.ReplyAsync($"The current prefix of bot is `{guildprefix}`");
                 return;
             }
 
@@ -80,13 +87,14 @@
                 return;
             }
 
-            if ( newprefix == "def" || newprefix == "default")
+            if (newprefix == "def" || newprefix == "default")
             {
-                await this._servers.ModifyGuildPrefix(this.Context.Guild.Id, "-")
-                await this.ReplyAsync($"The prefix was changed back to the default prefix `-`")
+                await this.servers.ModifyGuildPrefix(this.Context.Guild.Id, this.config["prefix"]);
+                await this.ReplyAsync($"The prefix was changed back to the default prefix `{this.config["prefix"]}`");
+                return;
             }
 
-            await this._servers.ModifyGuildPrefix(this.Context.Guild.Id, newprefix);
+            await this.servers.ModifyGuildPrefix(this.Context.Guild.Id, newprefix);
             await this.ReplyAsync($"Bot's prefix for the guild was changed to `{newprefix}`");
         }
     }

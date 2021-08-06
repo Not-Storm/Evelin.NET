@@ -85,8 +85,8 @@
             {
                 return;
             }
-	
-            string defaultprefix = config["Prefix"];
+
+            string defaultprefix = this.config["Prefix"];
             var prefix = await this.server.GetGuildPrefix((message.Channel as SocketGuildChannel).Guild.Id) ?? defaultprefix;
 
             var argPos = 0;
